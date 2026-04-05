@@ -1,0 +1,24 @@
+[project]
+name = "agentsrc"
+version = "0.1.0"
+description = "A local developer tool that fetches the exact source code of installed Python packages."
+readme = "README.md"
+authors = [
+    { name = "NikitasT2003", email = "tsoumasnikitas@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.13.1",
+    "pytest>=9.0.2",
+    "requests>=2.33.1",
+    "rich>=14.3.3",
+    "typer>=0.24.1",
+]
+
+[project.scripts]
+agentsrc = "agentsrc.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
