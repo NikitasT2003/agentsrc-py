@@ -5,10 +5,17 @@ build/
 dist/
 wheels/
 *.egg-info
+.coverage
+.pytest_cache/
+.pyrefly/
+
+# Project-specific cache
+.agentsrc/
 
 # Virtual environments
-.venv
+.venv/
 
 # PRD
 prd.md
 marketing-plan.md
+.agents/
