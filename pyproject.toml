@@ -1,7 +1,7 @@
 [project]
 name = "agentsrc"
 version = "0.1.0"
-description = "A local developer tool that fetches the exact source code of installed Python packages."
+description = "Extract semantic signals for AI Agents from Python dependencies."
 readme = "README.md"
 authors = [
     { name = "NikitasT2003", email = "tsoumasnikitas@gmail.com" }
