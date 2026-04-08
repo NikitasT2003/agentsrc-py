@@ -4,7 +4,6 @@ from pathlib import Path
 from typing import Any, Optional
 from urllib.parse import parse_qs, urlparse
 
-from agentsrc.config import load_config
 from agentsrc.storage.writer import StorageWriter
 
 
@@ -33,7 +32,7 @@ class SymbolQueryHandler(BaseHTTPRequestHandler):
         path = parsed_url.path.strip("/")
         query_params = parse_qs(parsed_url.query)
 
-        config = load_config()
+        # Config used for future extensions (e.g. custom store paths)
         writer = StorageWriter()
         store_path = writer.pypi_dir
 
@@ -87,7 +86,7 @@ class SymbolQueryHandler(BaseHTTPRequestHandler):
                                     "summary": manifest.get("summary"),
                                 }
                             )
-                    except:
+                    except Exception:
                         pass
 
         self._send_json(packages)
@@ -150,7 +149,7 @@ class SymbolQueryHandler(BaseHTTPRequestHandler):
                                             "docstring": item.get("docstring"),
                                         }
                                     )
-                except:
+                except Exception:
                     continue
 
         self._send_json(results[:50])  # Limit to 50 results

@@ -15,7 +15,15 @@ wheels/
 # Virtual environments
 .venv/
 
-# PRD
+# Ruff
+.ruff_cache/
+ruff.json
+ruff_output.txt
+
+# Internal docs (not public)
 prd.md
 marketing-plan.md
+social_kit.md
+
+# Agent skills (local development)
 .agents/

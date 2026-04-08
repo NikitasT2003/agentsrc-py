@@ -80,8 +80,8 @@ class ProjectResolver:
             with open(path, "rb") as f:
                 data = tomllib.load(f)
                 for pkg in data.get("package", []):
-                    # We only care about registry packages for now, skip editables or local paths if needed
-                    # but for v1 we'll take all named packages
+                    # Only care about registry packages for now;
+                    # skip editables or local paths.
                     name = pkg.get("name")
                     version = pkg.get("version")
                     if name and version:
@@ -111,6 +111,7 @@ class ProjectResolver:
         except Exception:
             pass
         return pkgs
+
     def resolve_from_requirements_txt(self, path: Path) -> Dict[str, str]:
         pkgs = {}
         try:

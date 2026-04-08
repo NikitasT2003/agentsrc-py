@@ -51,7 +51,7 @@ def _sync_package(
             console.status(status_msg) if not quiet else open(os.devnull, "w")
         ):  # fallback for quiet
             from agentsrc.analysis.plugins.pydantic import PydanticPlugin
-            
+
             plugins = [PydanticPlugin()]
             analyzer = ASTAnalyzer(exclude_dirs=exclude_dirs, plugins=plugins)
             symbol_map = analyzer.analyze_directory(str(unpack_dir))
@@ -137,10 +137,11 @@ def sync(
 
                     progress.advance(total_task)
                     # Update description with current progress
-                    progress.update(
-                        total_task,
-                        description=f"[cyan]Syncing dependencies ({success_count}/{len(packages)})...",
+                    desc = (
+                        f"[cyan]Syncing dependencies"
+                        f" ({success_count}/{len(packages)})..."
                     )
+                    progress.update(total_task, description=desc)
 
         console.print(
             f"\n[bold green]Sync complete: {success_count}/{len(packages)} succeeded.[/bold green]"

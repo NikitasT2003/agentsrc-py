@@ -3,7 +3,8 @@ from agentsrc.models import SymbolMap
 
 def infer_public_api(symbol_map: SymbolMap) -> SymbolMap:
     # Heuristics:
-    # 1. If explicit __all__ exports exist, we trust them but append non-underscored names just in case if nothing is exported
+    # 1. If explicit __all__ exports exist, trust them.
+    # Otherwise, append non-underscored names as fallback.
 
     public_exports = set(symbol_map.all_exports)
 

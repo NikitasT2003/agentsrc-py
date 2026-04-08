@@ -1,7 +1,9 @@
 from typer.testing import CliRunner
+
 from agentsrc.cli import app
 
 runner = CliRunner()
+
 
 def test_cli_help():
     result = runner.invoke(app, ["--help"])

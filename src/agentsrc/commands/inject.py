@@ -17,7 +17,8 @@ def inject(
     instruction_pointer = """
 ## Dependency Source Context
 This project uses `agentsrc-py` to provide deep context on Python dependencies.
-Please refer to [.agentsrc/instructions.md](.agentsrc/instructions.md) for guidance on how to use the indexed dependency source code and metadata.
+Please refer to [.agentsrc/instructions.md](.agentsrc/instructions.md)
+for guidance on using the indexed dependency source code and metadata.
 """
 
     found = False
@@ -40,7 +41,8 @@ Please refer to [.agentsrc/instructions.md](.agentsrc/instructions.md) for guida
             raise typer.Exit(1)
         else:
             console.print(
-                "[yellow]No common agent guidance files found (AGENTS.md, CLAUDE.md, etc.).[/yellow]"
+                "[yellow]No common agent guidance files found"
+                " (AGENTS.md, CLAUDE.md, etc.).[/yellow]"
             )
             console.print("Creating [bold cyan]AGENTS.md[/bold cyan] with instructions...")
             Path("AGENTS.md").write_text(

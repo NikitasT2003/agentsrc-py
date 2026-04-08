@@ -1,11 +1,11 @@
+import json
+
 import typer
 from rich.console import Console
+from rich.table import Table
 
 from agentsrc.config import load_config
 from agentsrc.query.server import start_server
-import json
-from pathlib import Path
-from rich.table import Table
 
 app = typer.Typer(help="Query symbols and package metadata via a local API.")
 console = Console()
@@ -84,7 +84,7 @@ def search(query: str = typer.Argument(..., help="Search query for symbols")):
                                         "name": name,
                                     }
                                 )
-            except:
+            except Exception:
                 continue
 
     if not results:

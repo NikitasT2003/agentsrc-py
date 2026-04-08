@@ -19,14 +19,14 @@ class ASTAnalyzer(ast.NodeVisitor):
             if any(part in self.exclude_dirs for part in filepath.parts):
                 continue
             self._analyze_file(filepath, src_path)
-        
+
         # Run plugins to enrich the symbol_map
         for plugin in self.plugins:
             findings = plugin.analyze(src_dir, self.symbol_map)
             # For v1, we can attach findings to the symbol_map or manifest
             # Let's say we add them to a 'frameworks' field in SymbolMap
             if findings:
-                if not hasattr(self.symbol_map, 'framework_data'):
+                if not hasattr(self.symbol_map, "framework_data"):
                     self.symbol_map.framework_data = {}
                 self.symbol_map.framework_data.update(findings)
 
@@ -95,7 +95,7 @@ class ASTAnalyzer(ast.NodeVisitor):
         # But we only want top-level. For V1, we'll accept it as heuristics.
         args = [a.arg for a in node.args.args]
         if args and args[0] in ("self", "cls"):
-            pass  # Probably a method, though ASTVisitor hits it anyway. We'll skip adding to global functions if it has self/cls for now.
+            pass  # Skip methods (has self/cls arg)
         else:
             self.symbol_map.functions.append(
                 FunctionDef(

@@ -1,5 +1,6 @@
-from agentsrc.models import PackageManifest, SymbolMap, ClassDef, FunctionDef
 from agentsrc.analysis.summary import generate_summary_markdown
+from agentsrc.models import ClassDef, FunctionDef, PackageManifest, SymbolMap
+
 
 def test_generate_summary():
     manifest = PackageManifest(
@@ -9,14 +10,14 @@ def test_generate_summary():
         source_type="sdist",
         artifact_url="",
         artifact_filename="",
-        artifact_hash=""
+        artifact_hash="",
     )
     symbol_map = SymbolMap(
         classes=[ClassDef(name="TargetClient", docstring="The main client")],
         functions=[FunctionDef(name="init_app", docstring="Initialize")],
-        all_exports=["TargetClient"]
+        all_exports=["TargetClient"],
     )
-    
+
     md = generate_summary_markdown(manifest, symbol_map)
     assert "# testpkg (1.0.0)" in md
     assert "TargetClient" in md

@@ -1,4 +1,5 @@
-from agentsrc.models import SymbolMap, ClassDef, FunctionDef, ExceptionDef, ModuleDef
+from agentsrc.models import ClassDef, ExceptionDef, FunctionDef, ModuleDef, SymbolMap
+
 
 def test_symbol_map_serialization():
     symbol_map = SymbolMap(
@@ -8,9 +9,9 @@ def test_symbol_map_serialization():
         exceptions=[ExceptionDef(name="FetchError", bases=["Exception"])],
         constants=["VERSION"],
         reexports=["retry"],
-        all_exports=["Client", "run"]
+        all_exports=["Client", "run"],
     )
-    
+
     data = symbol_map.model_dump()
     assert data["classes"][0]["name"] == "Client"
     assert data["exceptions"][0]["bases"] == ["Exception"]

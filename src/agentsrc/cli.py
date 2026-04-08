@@ -1,9 +1,12 @@
 import typer
 
-from agentsrc.commands import init, sync, inject, query, inspect
+from agentsrc.commands import init, inject, inspect, query, sync
 
 app = typer.Typer(
-    help="[bold cyan]agentsrc-py[/bold cyan] - Extract source code signals from installed Python packages",
+    help=(
+        "[bold cyan]agentsrc-py[/bold cyan] — "
+        "Extract source code signals from installed Python packages"
+    ),
     rich_markup_mode="rich",
 )
 

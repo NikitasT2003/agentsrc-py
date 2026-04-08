@@ -1,5 +1,11 @@
 # 📡 agentsrc-py
-
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python Version">
+  <img src="https://img.shields.io/badge/build-passing-brightgreen.svg" alt="Build Status">
+  <img src="https://img.shields.io/badge/license-MIT-orange.svg" alt="License">
+  <img src="https://img.shields.io/badge/DX-uv%20ready-blueviolet" alt="uv Ready">
+  <img src="https://img.shields.io/badge/AI-Agent%20Compatible-black" alt="AI Agent Compatible">
+</p>
 <p align="center">
   <img src="assets/banner.png" alt="agentsrc-py banner" width="800px">
 </p>
@@ -8,19 +14,13 @@
   <b>Semantic Signal Extraction for the Age of AI Agents.</b>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python Version">
-  <img src="https://img.shields.io/badge/build-passing-brightgreen.svg" alt="Build Status">
-  <img src="https://img.shields.io/badge/license-MIT-orange.svg" alt="License">
-  <img src="https://img.shields.io/badge/DX-uv%20ready-blueviolet" alt="uv Ready">
-  <img src="https://img.shields.io/badge/AI-Agent%20Compatible-black" alt="AI Agent Compatible">
-</p>
+
 
 ---
 
 ## 👁️ Grounding AI Agents in Reality
 
-Most AI coding agents (Claude, GPT-4, Cursor) understand Python libraries through outdated training data, static docstrings, or high-level type hints. When they encounter undocumented behavior, internal exception flows, or complex framework patterns (Pydantic, FastAPI), **they hallucinate.**
+Most AI coding agents (Claude, Cursor, etc.) understand Python libraries through outdated training data, static docstrings, or high-level type hints. When they encounter undocumented behavior, internal exception flows, or complex framework patterns (Pydantic, FastAPI), **they hallucinate.**
 
 `agentsrc-py` bridges this gap. It fetches, unpacks, and performs **AST-level analysis** on the exact version of the dependencies you are using, exposing the "ground truth" of the source code directly to your agent.
 
